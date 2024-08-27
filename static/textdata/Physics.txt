@@ -1,0 +1,3 @@
+<option>optics</option>
+<option>dimensions</option>
+<option>friction</option>
