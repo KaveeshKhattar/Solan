@@ -1,0 +1,8 @@
+<form action = "{% url 'insertStudent' %}" method="post" >
+    {% csrf_token %}
+    <input  name='rollNbr' type=text> Enter roll number </input>
+	<input  name='studentName' type=text> Enter the student name </input>
+	<input  name='subject' type=text> Enter the subject </input>
+	<input  name='standard' type=text> Enter the standard </input>
+    <button type=submit value="insertStudent" />
+</form>

@@ -1,0 +1,27 @@
+.card {
+    position: relative;
+    background-color: #f4f4f4;
+    margin: 10px auto;
+    box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
+    
+   
+
+  }
+  
+  .card {
+    padding-bottom: 5px;
+    height: 100%;
+  }
+  .container1{
+      height: 100%;
+      width: 100%;
+      align-content: center;
+  }
+  .firstheight{
+      height: 50%;
+  }
+  i.icon-black {
+    color: black;
+}
+  

@@ -1,0 +1,576 @@
+  {% load static %}
+{% load login_id %}
+{% if user.is_authenticated %}
+	{% if request.user|has_group:"Student" %}
+		<meta http-equiv="refresh" content="0; URL='dashboardS.html'" />
+  {% endif %}
+{% else %}
+	<meta http-equiv="refresh" content="0; URL='index.html'" />
+{% endif %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="generator" content="Program">
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+            <link rel="shortcut icon" href="{% static 'images/open-book.png' %}" type="image/x-icon">
+            <meta name="description" content="Teacher's Dashboard">
+
+            <title>Solan | Dashboard</title>
+
+
+
+            <!--CSS-->
+
+            <link rel="stylesheet" href="{% static 'leaderboard.css' %}">
+            <link rel="stylesheet" href="{% static 'tether/tether.min.css' %}">
+            <link rel="stylesheet" href="{% static 'dropdown/css/style.css' %}">
+            <link rel="stylesheet" href="{% static 'animatecss/animate.min.css' %}">
+            <link rel="stylesheet" href="{% static 'socicon/css/styles.css' %}">
+            <link rel="stylesheet" href="{% static 'theme/css/style.css' %}">
+            <link rel="stylesheet" href="{% static 'sidebar/sidebar.css' %}">
+            <link rel="stylesheet" href="{% static 'cards.css' %}">
+
+
+
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+            <!--<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">-->
+            <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <style>
+                /* Modal Content */
+                .modal-content {
+                    background-color: rgb(255, 255, 255);
+                    margin: auto;
+                    width: 80%;
+                }
+                .close:hover,
+                .close:focus {
+                    color: #000;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+
+               .active, .collapsible:hover {
+                background-color: #1976D2;
+
+               }
+               #Subjective
+               {
+                   display:none;
+               }
+               #MCQ
+               {
+                   display:none;
+               }
+               </style>
+               <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      $('.preloader-background').delay(1000).fadeOut('slow');
+      
+      $('.preloader-wrapper')
+        .delay(1000)
+        .fadeOut();
+    });
+  </script>
+
+          </head>
+
+          <body>
+           <div class="preloader-background">
+    <div class="spinner">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>
+  </div>
+              <script>  $(document).ready(function(){
+                  $('select').formSelect();
+                });
+                </script>
+                <nav>
+                        <div class="nav-wrapper light blue darken-2">
+                          <a href="index.html" class="brand-logo" style="padding-left:5.25%" >Solan |</a>
+                          <a href="dashboardT.html" class="brand-logo" style="padding-left:13%" > Dashboard</a>
+                          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                          <ul id="slide-out" class="sidenav">
+                            <li><div class="user-view">
+                              <div class="background">
+                                <img src="{% static 'images/0288D1 sidebar bg.png' %}">
+                              </div>
+                              <a style="cursor: default;" href="#user"><img class="circle" src="{% static 'images/KFP3-promo-po4.jpg' %}"></a>
+
+                              <a style="cursor: default;" href="#name"><span class="white-text bold name">
+                                {{ user.username }}
+                              </span></a>
+                              <a style="cursor: default;" href="#email"><span class="white-text bold email">{{ user.email }}</span></a>
+
+
+                            </div></li>
+                            <li><a style="cursor: default;" href="#!">Subject: </a></li>
+                            <a style="cursor: default;" href="#email"><span class="white-text bold email">{{ user.email }}</span></a>
+                            <li><div class="divider"></div></li>
+                            <li><a class="waves-effect waves-light light blue darken-2 btn modal-trigger" href="{% url 'password_reset' %}">Change Password</a></li>
+                            <!--<li><a href="#!">Second Link</a></li>-->
+                            <li><div class="divider"></div></li>
+
+
+                          </ul>
+
+
+                          <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+
+
+
+                          <ul class="right hide-on-med-and-down">
+
+                            <!--<li><a style="cursor: default;" href="#!">Points<span class="new badge" data-badge-caption="">102</span></a></li>-->
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+
+                          </ul>
+                         <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4 class="black-text">Change Password</h4>
+      <p class="black-text">//Insert Django page to change password here</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+
+                        </div>
+                      </nav>
+
+
+
+
+
+
+                        <div class="firstHeight">
+                      <div class="row">
+                        <div class="col s12 m6">
+                          <div class="card grey lighten-4 z-depth-1 hoverable">
+                            <div class="card-content black-text">
+
+
+                             <br>
+
+
+
+                              <center><i class="material-icons large modal-trigger" data-target="modal3" style="cursor: pointer;">format_list_bulleted</i></center>
+                              <br>
+                              <center><span class="card-title modal-trigger" data-target="modal3" style="cursor: pointer;">View Question Bank</span></center>
+
+                             <div class = activator style="padding-left: 97%; cursor: pointer;"><i class="material-icons right">info</i></div>
+                              <br>
+
+                                  </div>
+                                  <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">View Question Bank<i class="material-icons right icon-black">close</i></span>
+
+                                   <ul class="browser-default">
+                                   <li>View a list of questions submitted by students and teachers for every chapter.</li>
+
+                                    </ul>
+                                  </div>
+
+                                <div id="modal3" class="modal">
+                              <br>
+                              <br>
+                              <div class="container">
+                                <h4>Enter Subject and Chapter</h4>
+                                  <form action = "{% url 'viewBank' %}" method="post" class = "input-field">
+                                      {% csrf_token %}
+                                      <div class="row">
+                  <select name="selectsubject" id="selectsubject" required>
+                    <option val='' selected disabled>Select Subject</option>
+                    {% for item in subjects %}
+                    <option val="{{ item.name }}"> {{ item.name }} </option>
+                    {% endfor %}
+                  </select>
+
+                </div>
+
+                <div class="row">
+                  <select name="selectchapter" id="selectchapter" required>
+                  <option value = '' disabled selected> Select Subject First </option>
+                  </select>
+                    <script>
+                      var appenddata1 = "";
+                      var appenddata2 = "";
+                      appenddata1 += "<option disabled selected> Select Subject First </option> \n";
+                      $.ajaxSetup({
+                        headers: {
+                          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                      });
+                      $('select#selectsubject').change(function () {
+                        var optionSelected = $(this).find("option:selected");
+                        var valueSelected = optionSelected.val();
+                        var subject = optionSelected.text();
+                        //subject = 'English';
+                        console.log('in chapter subject = ', subject);
+                        console.log('clearing chapter list');
+                        $("select#selectchapter option").remove();
+                        appenddata1 = "<option value = select_chapter disabled selected> Select Chapter </option> \n";
+                        
+                        $.ajax({
+                          type: "GET",
+                          url: "/getdetails/",
+                          data: {
+                            'cnt1': subject
+                          },
+                          async: false,
+                          success: function (result) {
+                            console.log('Ajax call success', result);
+                            console.log('in chapter I am printing results of length:', result.length);
+                            // console.log(result);
+
+                            for (var i = 0; i <= result.length - 1; i++) {
+                              console.log('in chapter for loop', result[i].name);
+                              appenddata1 += "<option value = " + result[i].name + "> " + result[i].name +" </option> \n";
+                            };
+                            
+                          }, // success function
+                          error: function (textStatus, errorThrown) {
+                            console.log('Ajax call failure', textStatus, errorThrown);
+                            appenddata1 += "<option value = AjaxError> ServerError</option> \n";
+                          }
+                          
+                        }); // end of ajax get
+                        console.log('(Outside Overall Get Setting Chapter List with :', appenddata1);
+                        appenddata2+="<option value = AjaxError> ServerError</option>"
+                        appenddata2+="<option value = AjaxError> ServerError2</option> \n"
+                        $("#selectchapter").append(appenddata1);
+                        
+                      }); // end of subject change function
+                      console.log('(Inside Script  Setting and Showing Chapter List with :', appenddata1);
+                      $("#selectchapter").show();
+                    </script>
+                                                <button type ='submit' class="btn waves-effect waves-light blue darken-2" >View question bank</button>
+                                          </div>
+
+                                  </form>
+                              </div>
+                            </div>
+
+
+                          </div>
+
+
+                        </div>
+                        <div class="col s12 m6">
+                                <div class="card grey lighten-4 z-depth-1 hoverable">
+                                  <div class="card-content black-text">
+
+                                    <br>
+                                    <center><a href="B1.html" style="color:black"><i class="material-icons large modal-trigger" data-target="modal4" style="cursor: pointer">view_list</i></a></center>
+                              <br>
+                              <center><a href="B1.html" style="color:black"> <span class="card-title modal-trigger" data-target="modal4" style="cursor: pointer;">Question Management</span></a></center>
+
+
+                              <div class = activator style="padding-left: 97%; cursor: pointer;"><i class="material-icons right">info</i></div>
+                              <br>
+                                  </div>
+                                  <div class="card-reveal">
+                                      <span class="card-title grey-text text-darken-4">Question Management<i class="material-icons right icon-black">close</i></span>
+                                      <ul class="browser-default">
+
+                                        <li>Edit and delete questions that have been submitted by students.</li>
+                                        <li>Select question of the week.</li>
+                                      </ul>
+                                    </div>
+                                </div>
+                                <div id="modal4" class="modal">
+                                  <br>
+                                  <br>
+                                  <div class="container">
+                                    <h4>Enter Subject and Chapter</h4>
+                                  <form action = "{% url 'student_q_manage' %}" method="post" class = "input-field">
+                                      {% csrf_token %}
+                                      <div class="row">
+                  <select name="selectsubject2" id="selectsubject2" required>
+                    <option val='' selected disabled>Select Subject</option>
+                    {% for item in subjects %}
+                    <option val="{{ item.name }}"> {{ item.name }} </option>
+                    {% endfor %}
+                  </select>
+
+                </div>
+
+                <div class="row">
+                  <select name="selectchapter2" id="selectchapter2" required>
+                  <option value = '' disabled selected> Select Subject First </option>
+                  </select>
+                    <script>
+                      var appenddata1 = "";
+                      var appenddata2 = "";
+                      appenddata1 += "<option disabled selected> Select Subject First </option> \n";
+                      $.ajaxSetup({
+                        headers: {
+                          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                      });
+                      $('select#selectsubject2').change(function () {
+                        var optionSelected = $(this).find("option:selected");
+                        var valueSelected = optionSelected.val();
+                        var subject = optionSelected.text();
+                        //subject = 'English';
+                        console.log('in chapter subject = ', subject);
+                        console.log('clearing chapter list');
+                        $("select#selectchapter2 option").remove();
+                        appenddata1 = "<option value = select_chapter disabled selected> Select Chapter </option> \n";
+                        
+                        $.ajax({
+                          type: "GET",
+                          url: "/getdetails/",
+                          data: {
+                            'cnt1': subject
+                          },
+                          async: false,
+                          success: function (result) {
+                            console.log('Ajax call success', result);
+                            console.log('in chapter I am printing results of length:', result.length);
+                            // console.log(result);
+
+                            for (var i = 0; i <= result.length - 1; i++) {
+                              console.log('in chapter for loop', result[i].name);
+                              appenddata1 += "<option value = " + result[i].name + "> " + result[i].name +" </option> \n";
+                            };
+                            
+                          }, // success function
+                          error: function (textStatus, errorThrown) {
+                            console.log('Ajax call failure', textStatus, errorThrown);
+                            appenddata1 += "<option value = AjaxError> ServerError</option> \n";
+                          }
+                          
+                        }); // end of ajax get
+                        console.log('(Outside Overall Get Setting Chapter List with :', appenddata1);
+                        appenddata2+="<option value = AjaxError> ServerError</option>"
+                        appenddata2+="<option value = AjaxError> ServerError2</option> \n"
+                        $("#selectchapter2").append(appenddata1);
+                        
+                      }); // end of subject change function
+                      console.log('(Inside Script  Setting and Showing Chapter List with :', appenddata1);
+                      $("#selectchapter2").show();
+                    </script>
+                                                <button type ='submit' class="btn waves-effect waves-light blue darken-2" >Manage Student Questions</button>
+                                          </div>
+
+                                  </form>
+                              </div>
+
+                      </div>
+                      </div>
+
+  </div>
+
+  <div class="firstHeight">
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card grey lighten-4 z-depth-1 hoverable card">
+            <div class="card-content black-text">
+
+
+              <br>
+              <center><i class="material-icons large modal-trigger" data-target="modal2" style="cursor: pointer;">create</i></center>
+              <br>
+              <center><span class="card-title modal-trigger" data-target="modal2" style="cursor: pointer;">Submit New Question</span></center>
+
+
+              <div class = activator style="padding-left: 97%; cursor: pointer;"><i class="material-icons right">info</i></div>
+              <br>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Submit New Question<i class="material-icons right icon-black">close</i></span>
+              <ul class="browser-default">
+                <li>Submit your own questions.</li>
+                <li>It'll be available on the chapter-wise question bank for the student's benefit.</li>
+
+              </ul>
+            </div>
+          </div>
+          <div id="modal2" class="modal" role = "dialog">
+                                  <br>
+                                  <br>
+                                    <div class="container">
+                                      <h4>Enter Question details</h4>
+                                        <form action="{% url 'enterBank' %}" method="post" class="input-field">
+          {% csrf_token %}
+          
+          <div class="row">
+            <select name="selectsubject3" id="selectsubject3" required>
+              <option val='' selected disabled>Select Subject</option>
+              {% for item in subjects %}
+              <option val="{{ item.name }}"> {{ item.name }} </option>
+              {% endfor %}
+            </select>
+
+          </div>
+
+          <div class="row">
+            <select name="selectchapter3" id="selectchapter3" required>
+            <option value = '' disabled selected> Select Subject First </option>
+            </select>
+              <script>
+                var appenddata1 = "";
+                var appenddata2 = "";
+                appenddata1 += "<option disabled selected> Select Subject First </option> \n";
+                $.ajaxSetup({
+                  headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  }
+                });
+                $('select#selectsubject3').change(function () {
+                  var optionSelected = $(this).find("option:selected");
+                  var valueSelected = optionSelected.val();
+                  var subject = optionSelected.text();
+                  //subject = 'English';
+                  console.log('in chapter subject = ', subject);
+                  console.log('clearing chapter list');
+                  $("select#selectchapter3 option").remove();
+                  appenddata1 = "<option value = select_chapter disabled selected> Select Chapter </option> \n";
+                  
+                  $.ajax({
+                    type: "GET",
+                    url: "/getdetails/",
+                    data: {
+                      'cnt1': subject
+                    },
+                    async: false,
+                    success: function (result) {
+                      console.log('Ajax call success', result);
+                      console.log('in chapter I am printing results of length:', result.length);
+                      // console.log(result);
+
+                      for (var i = 0; i <= result.length - 1; i++) {
+                        console.log('in chapter for loop', result[i].name);
+                        appenddata1 += "<option value = " + result[i].name + "> " + result[i].name +" </option> \n";
+                      };
+                      
+                    }, // success function
+                    error: function (textStatus, errorThrown) {
+                      console.log('Ajax call failure', textStatus, errorThrown);
+                      appenddata1 += "<option value = AjaxError> ServerError</option> \n";
+                    }
+                    
+                  }); // end of ajax get
+                  console.log('(Outside Overall Get Setting Chapter List with :', appenddata1);
+                  appenddata2+="<option value = AjaxError> ServerError</option>"
+                  appenddata2+="<option value = AjaxError> ServerError2</option> \n"
+                  $("#selectchapter3").append(appenddata1);
+                  
+                }); // end of subject change function
+                console.log('(Inside Script  Setting and Showing Chapter List with :', appenddata1);
+                $("#selectchapter3").show();
+              </script>
+          </div>
+            <div class="input-field col s12">
+              <textarea name="questionID" class="materialize-textarea"></textarea>
+              <label for="textarea1">Textarea</label>
+
+              <textarea hidden name="username" class="materialize-textarea">{{user.username}}</textarea>
+
+            </div>
+            <button type='submit' class="btn waves-effect waves-light blue darken-2">Enter question</button>
+          </div>
+
+
+
+          <div class="row">
+
+        </form>
+
+                                        <script>
+                                        function dispS()
+                                        {
+                                            document.getElementById("#Subjective").style.display="block";
+                                        }
+                                        function dispM
+                                        {
+                                            document.getElementById("MCQ").style.display = "block";
+                                        }
+                                    </script>
+
+                                  <div class="modal-footer">
+                                      <!--button type ='submit' class="btn waves-effect waves-light blue darken-2" >Submit</button-->
+                                  </div>
+                                </div>
+                                </div>
+                            </div>
+        <div class="col s12 m6">
+                <div class="card grey lighten-4 z-depth-1 hoverable">
+                  <div class="card-content black-text">
+
+
+              <br>
+              <center><a href="GenReport.html" style="color:black"><i class="material-icons large" style="cursor: pointer;">person</i></a></center>
+              <br>
+              <center><a href="GenReport.html" style="color:black"><span class="card-title" style="cursor: pointer;">Generate Student Report</span></a></center>
+              <div class = activator style="padding-left: 97%; cursor: pointer;"><i class="material-icons right">info</i></div>
+              <br>
+
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Student Report<i class="material-icons right icon-black">close</i></span>
+                    <ul class="browser-default">
+                      <li>Understand how your students are performing.</li>
+                      <li>Get comprehnsive information on the points earned by each student.</li>
+
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+      </div>
+      </div>
+
+</div>
+
+
+
+
+                            <footer class="page-footer light blue darken-2">
+                                <p style="padding-left:22%;">© Copyright 2019 Solan - All Rights Reserved</p>
+                                <br>
+
+
+                            </footer>
+
+
+
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+                <script src="{% static 'modal.js' %}"></script>
+                <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+                <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+                <script src="{% static 'leaderboard.js' %}"></script>
+                <script src="{% static 'web/assets/jquery/jquery.min.js' %}"></script>
+                <script src="{% static 'popper/popper.min.js' %}"></script>
+                <script src="{% static 'tether/tether.min.js' %}"></script>
+                <script src="{% static 'smoothscroll/smooth-scroll.js' %}"></script>
+                <script src="{% static 'dropdown/js/script.min.js' %}"></script>
+                <script src="{% static 'touchswipe/jquery.touch-swipe.min.js' %}"></script>
+                <script src="{% static 'viewportchecker/jquery.viewportchecker.js' %}"></script>
+                <script src="{% static 'parallax/jarallax.min.js' %}"></script>
+                <script src="{% static 'theme/js/script.js' %}"></script>
+                <script src="{% static 'formoid/formoid.min.js' %}"></script>
+                <script src="{% static 'sidebar/sidebar.js' %}"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+                <script src="{% static 'modal.js' %}"></script>
+                <script src="{% static 'navbar.js' %}"></script>
+
+
+                <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="material-icons">arrow_downward</i></a></div>
+                <input name="animation" type="hidden"> <!--btn to scroll to top-->
+
+
+            </body>
+
+
+</html>

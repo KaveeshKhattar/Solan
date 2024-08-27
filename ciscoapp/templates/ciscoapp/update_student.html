@@ -1,0 +1,6 @@
+<form action = "{% url 'updateStudent' %}" method="post" >
+    {% csrf_token %}
+    <input  name='studentName' type=text> the name to be updated </input>
+	<input  name='rollNbr2' type=text> the roll number to be updated </input>
+	<button type=submit value="updateStudent" />
+</form>

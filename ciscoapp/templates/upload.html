@@ -1,0 +1,341 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Program">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'images/open-book.png' %}" type="image/x-icon">
+  <meta name="description" content="Bulk Add">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Solan | Bulk Add</title>
+
+
+
+  <!--CSS-->
+  <link rel="stylesheet" href="{% static 'leaderboard.css' %}">
+  <link rel="stylesheet" href="{% static 'tether/tether.min.css' %}">
+  <link rel="stylesheet" href="{% static 'dropdown/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'animatecss/animate.min.css' %}">
+  <link rel="stylesheet" href="{% static 'socicon/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'theme/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'sidebar/sidebar.css' %}">
+  <link rel="stylesheet" href="{% static 'cards.css' %}">
+  
+
+
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css">
+  <!--<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <!--script type="text/javascript" src="http://yourjavascript.com/7174319415/script.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
+  <style>
+    /* Modal Content */
+    .modal-content {
+      background-color: rgb(255, 255, 255);
+      margin: auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      /*z-index: 50;*/
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .main-loader {
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #1976D2;
+
+    }
+
+    #Subjective {
+      display: none;
+    }
+
+    #MCQ {
+      display: none;
+    }
+    .preloader-background {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #eee;
+      
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;	
+    }
+    /*Huge thanks to @tobiasahlin at http://tobiasahlin.com/spinkit/ */
+    .spinner {
+      margin: 100px auto 0;
+      width: 70px;
+      text-align: center;
+    }
+
+    .spinner > div {
+      width: 18px;
+      height: 18px;
+      background-color: #333;
+
+      border-radius: 100%;
+      display: inline-block;
+      -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+      animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    }
+
+    .spinner .bounce1 {
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+    }
+
+    .spinner .bounce2 {
+      -webkit-animation-delay: -0.16s;
+      animation-delay: -0.16s;
+    }
+
+    @-webkit-keyframes sk-bouncedelay {
+      0%, 80%, 100% { -webkit-transform: scale(0) }
+      40% { -webkit-transform: scale(1.0) }
+    }
+
+    @keyframes sk-bouncedelay {
+      0%, 80%, 100% { 
+        -webkit-transform: scale(0);
+        transform: scale(0);
+      } 40% { 
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+      }
+    }
+  </style>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-3366951268476558",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      $('.preloader-background').delay(700).fadeOut('slow');
+      
+      $('.preloader-wrapper')
+        .delay(1700)
+        .fadeOut();
+    });
+  </script>
+</head>
+
+<body>
+  <div class="preloader-background">
+    <div class="spinner">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>
+  </div>
+  
+  <script>
+    $(document).ready(function () {
+      $('select').formSelect();
+    });
+  </script>
+  <nav>
+    <div class="nav-wrapper light blue darken-2">
+      <a href="index.html" class="brand-logo" style="padding-left:5.25%">Solan |</a>
+      <a href="dashboardS.html" class="brand-logo" style="padding-left:13%"> Bulk Add</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="slide-out" class="sidenav">
+        <li>
+          <div class="user-view">
+            <div class="background">
+              <img src="{% static '/images/0288D1 sidebar bg.png' %}">
+            </div>
+            <a style="cursor: default;" href="#user"><img class="circle"
+                src="{% static '/images/KFP3-promo-po4.jpg' %}"></a>
+
+            <a style="cursor: default;" href="#name"><span class="white-text bold name">
+                {{ user.username }}
+              </span></a>
+            <a style="cursor: default;" href="#email"><span class="white-text bold email">{{ user.email }}</span></a>
+
+
+          </div>
+        </li>
+        
+        <li>
+          <div class="divider"></div>
+        </li>
+        <li><a class="waves-effect waves-light light blue darken-2 btn modal-trigger"
+            href="{% url 'password_reset' %}">Change Password</a></li>
+        <!--<li><a href="#!">Second Link</a></li>-->
+        <li>
+          <div class="divider"></div>
+        </li>
+
+      </ul>
+
+      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+
+
+
+      <ul class="right hide-on-med-and-down">
+        
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+      </ul>
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4 class="black-text">Change Password</h4>
+          <p class="black-text">//Insert Django page to change password here</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
+  </nav>
+
+
+  <form action="#" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
+{% csrf_token %}
+<div class="form-group" style="padding-left:2.25%; padding-bottom:1.25%;">
+  <h2>Upload File</h2>
+  <p>Upload a .csv file containg a list of students and their details.</p>
+    <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label">CSV File: </label>
+    <div class="col-md-8">
+        <input type="file" name="myfile" id="myfile" required="True" class="form-control">
+    </div>                    
+</div>
+<div class="form-group" style="padding-left:2.25%">                    
+    <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
+         <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
+    </div> 
+</div>
+</form>
+  
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+
+
+   <footer class="page-footer blue darken-2">
+    <p style="padding-left:22%;">© Copyright 2019 Solan - All Rights Reserved</p>
+    <br>
+
+
+  </footer>
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="{% static 'modal.js' %}"></script>
+  <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="{% static 'web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'popper/popper.min.js' %}"></script>
+  <script src="{% static 'tether/tether.min.js' %}"></script>
+  <script src="{% static 'smoothscroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'dropdown/js/script.min.js' %}"></script>
+  <script src="{% static 'touchswipe/jquery.touch-swipe.min.js' %}"></script>
+  <script src="{% static 'viewportchecker/jquery.viewportchecker.js' %}"></script>
+  <script src="{% static 'parallax/jarallax.min.js' %}"></script>
+  <script src="{% static 'theme/js/script.js' %}"></script>
+  <script src="{% static 'formoid/formoid.min.js' %}"></script>
+  <script src="{% static 'sidebar/sidebar.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="{% static 'modal.js' %}"></script>
+  <script src="{% static 'navbar.js' %}"></script>
+
+  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i
+        class="material-icons">arrow_downward</i></a></div>
+  <input name="animation" type="hidden">
+  <!--btn to scroll to top-->
+
+
+
+
+</body>
+
+
+</html>
+{% comment %}  
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <button type="submit">Upload</button>
+  </form>
+
+  {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  {% endif %}
+
+  <p><a href="{% url 'home' %}">Return to home</a></p>
+{% endcomment %}
+<!--
+  <html>
+  <form action="#" method="POST" enctype="multipart/form-data" class="form-horizontal"> 
+{% csrf_token %}
+<div class="form-group">
+    <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label">File: </label>
+    <div class="col-md-8">
+        <input type="file" name="myfile" id="myfile" required="True" class="form-control">
+    </div>                    
+</div>
+<div class="form-group">                    
+    <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;">
+         <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
+    </div> 
+</div>
+</form>
+  </html>-->

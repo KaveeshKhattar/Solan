@@ -1,0 +1,55 @@
+<html>
+    <head>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://yourjavascript.com/7174319415/script.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                 $('select#selectsubject').change(function () {
+                     var optionSelected = $(this).find("option:selected");
+                     var valueSelected  = optionSelected.val();
+                     var subject   = optionSelected.text();
+
+
+                     data = {'cnt1' : subject };
+                    $.ajax({
+                        type:"GET",
+                        url: "/getdetails/",
+                        data:{'cnt1' : subject},
+                        success: function(result){
+                            console.log('I am printing results of length:',result.length);
+                            console.log(result);
+                            $("#selectchapter option").remove();
+                            for (var i = 0; i <= result.length - 1; i++) {
+                                console.log(result[i].name);
+                                $("#selectchapter").append('<option value='+result[i].name+' >'+ result[i].name +'</option>');
+                            };
+
+
+                        }
+                    });
+                 });
+            });
+        </script>
+    </head>
+
+    <body>
+        <select name="selectsubject" id="selectsubject">
+        {% for item in subjects %}
+            <option val="{{ item.name }}"> {{ item.name }} </option>    
+        {% endfor %}
+        </select>   
+
+
+        <select name ="selectchapter" id="selectchapter">
+
+
+        </select>
+
+    </body>
+</html>

@@ -1,0 +1,305 @@
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="generator" content="Program">
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+            <link rel="shortcut icon" href="{% static 'images/open-book.png' %}" type="image/x-icon">
+            <meta name="description" content="Teacher veiws student's questions">
+
+            <title>Solan | Your questions</title>
+
+
+
+            <!--CSS-->
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <link rel="stylesheet" href="{% static 'tether/tether.min.css' %}">
+            <link rel="stylesheet" href="{% static 'dropdown/css/style.css' %}">
+            <link rel="stylesheet" href="{% static 'animatecss/animate.min.css' %}">
+            <link rel="stylesheet" href="{% static 'socicon/css/styles.css' %}">
+            <link rel="stylesheet" href="{% static 'theme/css/style.css' %}">
+            <link rel="stylesheet" href="{% static 'sidebar/sidebar.css' %}">
+            <link rel="stylesheet" href="{% static 'cards.css' %}">
+
+
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+            <!--<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">-->
+          <style>
+            .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+          }
+          /* Modal Content */
+          .modal-content {
+              background-color: #1976D2;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+          }
+          /* The Close Button */
+          .close {
+              color: #aaaaaa;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+          }
+          .close:hover,
+          .close:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
+          }
+          .panel {
+          padding: 0 18px;
+          display: none;
+          background-color: white;
+          overflow: hidden;
+           }
+           .collapsible {
+          background-color:#f5f5f5;
+          color: #050505;
+          cursor: pointer;
+          padding: 15px;
+          width: 100%;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+          transition: 0.4s;
+         }
+
+         .active, .collapsible:hover {
+          background-color: #1976D2;
+         }
+         .active, .collapsible:focus {
+          background-color: #1976D2;
+         }
+         .active, .collapsible:visited {
+          background-color: #1976D2;
+         }
+      </style>
+
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper light blue darken-2">
+      <a href="index.html" class="brand-logo" style="padding-left:5.25%" >Solan |</a>
+      <a href="dashboardT.html" class="brand-logo" style="padding-left:14%" >   Dashboard</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="slide-out" class="sidenav">
+        <li><div class="user-view">
+          <div class="background">
+            <img src="{% static 'images/0288D1 sidebar bg.png' %}">
+          </div>
+          <a style="cursor: default;" href="#user"><img class="circle" src="{% static 'images/KFP3-promo-po4.jpg' %}"></a>
+
+          <a style="cursor: default;" href="#name"><span class="white-text bold name">
+            {{ user.username }}
+          </span></a>
+          <a style="cursor: default;" href="#email"><span class="white-text bold email">{{ user.email }}
+          </span></a>
+
+
+        </div></li>
+        <li><a style="cursor: default;" href="#!">Class: 11</a></li>
+        <li><a style="cursor: default;" href="#!">Subject: Science</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="waves-effect waves-light light blue darken-2 btn modal-trigger" href="{% url 'password_reset' %}">Change Password</a></li>
+        <!--<li><a href="#!">Second Link</a></li>-->
+        <li><div class="divider"></div></li>
+
+
+      </ul>
+      <!-- Modal Structure -->
+<div id="modal1" class="modal">
+<div class="modal-content">
+<h4 class="black-text">Change Password</h4>
+<p class="black-text">//Insert Django page to change password here</p>
+</div>
+<div class="modal-footer">
+<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+</div>
+</div>
+
+      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+
+
+
+      <ul class="right hide-on-med-and-down">
+        <!---li><a href="#leaderboard">Leaderboard</a></li>
+        <<li><a style="cursor: default;" href="#!">Points<span class="new badge" data-badge-caption="">102</span></a></li>-->
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+
+      </ul>
+    </div>
+  </nav>
+  <br>
+  <div style="padding-left:1%"><a href="dashboardT.html"><button class="btn waves-effect waves-light blue darken-2" >Back to dashboard</button></a></div>
+
+  <div class="container">
+    <h2>Questions</h2>
+	  <h5>Click the questions to view options<h5>
+
+
+		 {% if questionList %}
+        <ul class = "collection">
+          {% for qn in questionList %}
+
+
+
+            <button class="collapsible">{{ qn.question }}</button>
+              <div class="panel">
+                <form action = "{% url 'editquestion2' %}" method="post" >
+              {% csrf_token %}
+
+                <div class="input-field col s12">
+
+                  <textarea Hidden name = "question123" class="materialize-textarea" >{{ qn.question }}</textarea>
+                  <textarea Hidden name = "subject123" class="materialize-textarea" >{{ qn.subject }}</textarea>
+                  <textarea Hidden name = "chapter123" class="materialize-textarea" >{{ qn.chapter }}</textarea>
+                </div>
+                <div class="input-field col s12">
+                  <textarea name = "question456" class="materialize-textarea" >{{ qn.question }} </textarea>
+
+                </div>
+       <button type ='submit' class="btn waves-effect waves-light blue darken-2" >Save</button>
+       </form>
+        <form action = "{% url 'deletequestion2' %}" method="post" >
+              {% csrf_token %}
+
+              <div class="input-field col s12">
+
+                  <textarea Hidden name = "question333" class="materialize-textarea" >{{ qn.question }}</textarea>
+                  <textarea Hidden name = "subject123" class="materialize-textarea" >{{ qn.subject }}</textarea>
+                  <textarea Hidden name = "chapter123" class="materialize-textarea" >{{ qn.chapter }}</textarea>
+                </div>
+                <!--a class="waves-effect waves-light btn blue darken-1 modal-trigger" href="#demo-modal">Delete Question</a>
+                <div id="demo-modal" class="modal">
+   <div class="modal-content">
+     <p>Are you sure that you want to delete the question?</p>
+   </div>
+   <div class="modal-footer">
+     <button type ='submit'  class="modal-action modal-close waves-effect waves-green btn green lighten-1" >Delete</button>
+     <a href="#!" class="modal-action modal-close waves-effect waves-red btn red lighten-1">NO</a>
+   </div>
+ </div>
+
+<script>
+$(document).ready(function(){
+   $('.modal').modal();
+ })
+</script-->
+       <button type ='submit'  class="btn waves-effect waves-light blue darken-2" >Delete</button>
+       <!--div id="del" class="modal">
+        <br>
+        <br>
+        <div class="container" style="background-color: white" >Are you sure you want to delete this question?</div>
+
+              <div class="modal-footer" style="background-color: white">
+                <button type ='submit' class="btn waves-effect waves-light blue darken-2"   onclick="alert('Successfully deleted question')">Yes</button>
+                <a href="student_q_manage"><button class="btn waves-effect waves-light blue darken-2" >No</button></a>
+              </div>
+            </div-->
+          </form>
+      <form action = "{% url 'questionoftheweekteacher' %}" method="post" >
+       {% csrf_token %}
+          <div class="input-field col s12">
+
+                  <textarea Hidden name = "question111" class="materialize-textarea" >{{ qn.question }}</textarea>
+
+                </div>
+       
+       <div id="sel" class="modal">
+        <br>
+        <br>
+        <div class="container" style="background-color: white" >Are you sure you want to select this question as the Question of The Week?</div>
+
+              <div class="modal-footer" style="background-color: white">
+                <a href="SuccessfulQOTW.html" class="btn waves-effect waves-light blue darken-2" >Yes</a>
+                <a href="B1.html"><button class="btn waves-effect waves-light blue darken-2" >No</button></a>
+              </div>
+            </div>
+            </form>
+                     </div>
+
+
+          {% endfor %}
+        </ul>
+    {% else %}
+      <p>No questions are available.</p>
+    {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    <p style="padding-top:10%"></p>
+    <footer class="page-footer blue darken-2">
+      <p style="padding-left:22%;">© Copyright 2019 Solan - All Rights Reserved</p>
+       <br>
+    </footer>
+
+
+
+	   <script>
+        var acc = document.getElementsByClassName("collapsible");
+        var i;
+
+              for (i = 0; i < acc.length; i++) {
+         acc[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+     }
+     </script>
+
+
+
+
+
+	              <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+                <script src="{% static 'web/assets/jquery/jquery.min.js' %}"></script>
+                <script src="{% static 'popper/popper.min.js' %}"></script>
+                <script src="{% static 'tether/tether.min.js' %}"></script>
+                <script src="{% static 'smoothscroll/smooth-scroll.js' %}"></script>
+                <script src="{% static 'dropdown/js/script.min.js' %}"></script>
+                <script src="{% static 'touchswipe/jquery.touch-swipe.min.js' %}"></script>
+                <script src="{% static 'viewportchecker/jquery.viewportchecker.js' %}"></script>
+                <script src="{% static 'parallax/jarallax.min.js' %}"></script>
+                <script src="{% static 'theme/js/script.js' %}"></script>
+                <script src="{% static 'formoid/formoid.min.js' %}"></script>
+                <script src="{% static 'sidebar/sidebar.js' %}"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+                <script src="{% static 'modal.js' %}"></script>
+                <script src="{% static 'navbar.js' %}"></script>
+
+                <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="material-icons">arrow_downward</i></a></div>
+                <input name="animation" type="hidden"> <!--btn to scroll to top-->
+</body>
+</html>
+{% endblock %}
+
+
+

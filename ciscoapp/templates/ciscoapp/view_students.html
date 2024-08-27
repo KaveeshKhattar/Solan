@@ -1,0 +1,10 @@
+{% if st_lst %}
+    <table>
+        {% for student in st_lst %}
+            <td>{{ student.roll_nbr }}</td>
+			<td>{{ student.student_name }}</td>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No students are available.</p>
+{% endif %}

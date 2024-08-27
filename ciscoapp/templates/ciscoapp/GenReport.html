@@ -1,0 +1,157 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="generator" content="Program">
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+            <link rel="shortcut icon" href="{% static 'images/open-book.png' %}" type="image/x-icon">
+            <meta name="description" content="Student views DataBase">
+          
+            <title>Solan | Student report</title>
+          
+          
+            
+            <!--CSS-->
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <link rel="stylesheet" href="{% static 'leaderboard.css' %}">
+            <link rel="stylesheet" href="{% static 'tether/tether.min.css' %}">
+            <link rel="stylesheet" href="{% static 'dropdown/css/style.css' %}">
+            <link rel="stylesheet" href="{% static 'animatecss/animate.min.css' %}">
+            <link rel="stylesheet" href="{% static 'socicon/css/styles.css' %}">
+            <link rel="stylesheet" href="{% static 'theme/css/style.css' %}">
+            <link rel="stylesheet" href="{% static 'sidebar/sidebar.css' %}">
+            <link rel="stylesheet" href="{% static 'cards.css' %}">
+            
+  
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+            <!--<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">-->
+            
+</head>
+<body>
+  
+  <nav>
+    <div class="nav-wrapper light blue darken-2">
+      <a href="index.html" class="brand-logo" style="padding-left:5.25%" >Solan |</a>
+      <a href="dashboardT.html" class="brand-logo" style="padding-left:13%" > Dashboard</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="slide-out" class="sidenav">
+        <li><div class="user-view">
+          <div class="background">
+            <img src="{% static 'images/0288D1 sidebar bg.png' %}">
+          </div>
+          <a style="cursor: default;" href="#user"><img class="circle" src="{% static 'images/KFP3-promo-po4.jpg' %}"></a>
+
+          <a style="cursor: default;" href="#name"><span class="white-text bold name">
+            {{ user.username }}
+          </span></a>
+          <a style="cursor: default;" href="#email"><span class="white-text bold email">{{ user.email }}</span></a>
+                              
+                              
+        </div></li>
+        <li><a style="cursor: default;" href="#!">Class: 10C</a></li>
+        <li><a style="cursor: default;" href="#!">Subject: Science</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="waves-effect waves-light light blue darken-2 btn modal-trigger" href="#modal1">Change Password</a></li>
+        <!--<li><a href="#!">Second Link</a></li>-->
+        <li><div class="divider"></div></li>
+        
+        
+      </ul>
+      <!-- Modal Structure -->
+<div id="modal1" class="modal">
+<div class="modal-content">
+<h4 class="black-text">Change Password</h4>
+<p class="black-text">//Insert Django page to change password here</p>
+</div>
+<div class="modal-footer">
+<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+</div>
+</div>
+      
+      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+     
+
+      
+      <ul class="right hide-on-med-and-down">
+        <!--li><a href="#leaderboard">Leaderboard</a></li>
+        <<li><a style="cursor: default;" href="#!">Points<span class="new badge" data-badge-caption="">102</span></a></li>-->
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+        
+      </ul>
+    </div>
+  </nav>        <br>
+               <div style="padding-left:1%"><a href="dashboardT.html"><button class="btn waves-effect waves-light blue darken-2" >Back to dashboard</button></a></div>
+					  <div class="container">
+              <h2>Student Report</h2>
+            </div>
+					  
+                    <div class="container">
+                    <table>
+                <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Points</th>
+                  </tr>
+                </thead>
+        
+                {% if query_results %}
+                <tbody>
+                  {% for item in query_results %}
+                    <tr>
+                      <td>{{ item.login.user.username }}</td>
+                      <td>{{ item.points }}</td>
+                    </tr>
+                  {% endfor %}
+                  
+                </tbody>
+                {% else %}
+                  <p>No students are available.</p>
+                {% endif %}
+              </table>
+              <br>
+              
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+            </div>
+
+
+            
+            <footer class="page-footer blue darken-2">
+              <p style="padding-left:22%;">© Copyright 2019 Solan - All Rights Reserved</p>
+               <br>            
+            </footer>
+          
+	
+	              <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+                <script src="{% static 'web/assets/jquery/jquery.min.js' %}"></script>
+                <script src="{% static 'popper/popper.min.js' %}"></script>
+                <script src="{% static 'tether/tether.min.js' %}"></script>
+                <script src="{% static 'smoothscroll/smooth-scroll.js' %}"></script>
+                <script src="{% static 'dropdown/js/script.min.js' %}"></script>
+                <script src="{% static 'touchswipe/jquery.touch-swipe.min.js' %}"></script>
+                <script src="{% static 'viewportchecker/jquery.viewportchecker.js' %}"></script>
+                <script src="{% static 'parallax/jarallax.min.js' %}"></script>
+                <script src="{% static 'theme/js/script.js' %}"></script>
+                <script src="{% static 'formoid/formoid.min.js' %}"></script>
+                <script src="{% static 'sidebar/sidebar.js' %}"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+                <script src="{% static 'modal.js' %}"></script>
+                <script src="{% static 'navbar.js' %}"></script>
+
+      <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="material-icons">arrow_downward</i></a></div>
+      <input name="animation" type="hidden"> <!--btn to scroll to top-->
+
+</body>
+</html>
+{% endblock %}
+
+
+

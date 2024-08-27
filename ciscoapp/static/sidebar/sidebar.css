@@ -1,0 +1,154 @@
+.default-theme 
+{
+  background-color: #C1C6BD;
+}
+
+.dark-theme 
+{
+  background-color: #1C1F21;
+}
+
+.light-theme 
+{
+  background-color: #F2F2F2;
+}
+
+
+.sidebar 
+{
+  position: absolute;
+  background-color: white;
+  top:0;
+  left: 0;
+  height: 100%;
+  left: -25%;
+  width: 25%;
+  z-index: 500;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.5);
+  visibility:hidden;
+  opacity:0;
+  -webkit-transition: left 500ms, visibility 0s linear 500ms, opacity 500ms linear; /* For Safari 3.1 to 6.0 */
+  transition: left 500ms, visibility 0s linear 500ms, opacity 500ms linear;
+}
+
+.sidebar-active 
+{
+  left:0%;
+  visibility:visible;
+  opacity:1;
+  transition-delay:0s;
+}
+
+
+.material-icon 
+{
+  width: 70px;
+  height: 70px;
+  margin: 35px;
+  position: absolute;
+  cursor: pointer;
+  -webkit-transition: margin-left 500ms; /* For Safari 3.1 to 6.0 */
+  transition: margin-left 500ms;
+}
+
+.menu-icon-sidebar
+{
+  margin-left: 28%;
+}
+ 
+.material-icon span 
+{
+  transition: all 500ms ease;
+}
+ 
+.material-icon span 
+{
+  background-color: #fff;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.hamburger span 
+{
+  height: 10px;
+  -webkit-transform: translateY(29px);
+}
+ 
+.hamburger .second 
+{
+  -webkit-transform: translateY(0);
+}
+ 
+.hamburger .third
+{
+  -webkit-transform: translateY(60px);
+}
+
+.hamburger span, .arrow span 
+{
+  height: 10px;
+  -webkit-transform: translateY(29px);
+}
+ 
+/* I also need to move it back a bit to keep it centered. */
+.arrow 
+{
+  -webkit-transform: translateX(-3px);
+}
+
+.arrow .first
+{
+  width: 0px;
+}
+ 
+.arrow .third 
+{
+  -webkit-transform: rotate(45deg)  translateY(20px) translateX(5px);
+  width: 50px;
+}
+ 
+.arrow .second 
+{
+  -webkit-transform: rotate(-45deg) translateY(5px) translateX(-20px);
+  width: 50px;
+}
+
+.sidebar-profile 
+{
+  width: 100%;
+  /*background-color: green;*/
+}
+
+.sidebar-user-image-container
+{
+  border-radius: 50%;
+  width: 40%;
+  margin-left:30%;
+  background-color: #DBDBDB;
+  margin-top:3em;
+  margin-bottom:3em;
+}
+
+.sidebar-user-image
+{
+  height: 0;
+  padding-bottom: 100%;
+  
+}
+
+.sidebar-action
+{
+  
+}
+header, main, footer {
+  padding-left: 300px;
+}
+
+@media only screen and (max-width : 992px) {
+  header, main, footer {
+    padding-left: 0;
+  }
+}

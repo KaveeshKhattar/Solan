@@ -1,0 +1,6 @@
+<form action = "{% url 'deleteStudent' %}" method="post" >
+    {% csrf_token %}
+    <input  name='rollNbr1' type=text> delete student </input>
+	<!--input  name='subjectfor_rollnumber' type=text> subject student </input-->
+	<button type=submit value="deleteStudent" />
+</form>

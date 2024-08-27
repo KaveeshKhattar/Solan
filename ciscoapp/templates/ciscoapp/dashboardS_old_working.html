@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="generator" content="Program">
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+            <link rel="shortcut icon" href="assets/images/open-book.png" type="image/x-icon">
+            <meta name="description" content="Student's Dashboard">
+
+            <title>Solan | Dashboard</title>
+          
+          
+            
+            <!--CSS-->
+            <link rel="stylesheet" href="leaderboard.css">
+            <link rel="stylesheet" href="assets/tether/tether.min.css">
+            <link rel="stylesheet" href="assets/dropdown/css/style.css">
+            <link rel="stylesheet" href="assets/animatecss/animate.min.css">
+            <link rel="stylesheet" href="assets/socicon/css/styles.css">
+            <link rel="stylesheet" href="assets/theme/css/style.css">
+            <link rel="stylesheet" href="assets/sidebar/sidebar.css">
+            <link rel="stylesheet" href="cards.css">
+
+            
+            
+  
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+            <!--<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">-->
+            <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src ="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"></script>
+            <script src ="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+            <script src ="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+            <style>
+                /* Modal Content */
+                .modal-content {
+                    background-color: rgb(250, 250, 250);
+                    margin: auto;
+                    padding: 20px;
+                    border: 1px solid #888;
+                    width: 80%;
+                }
+                .close:hover,
+                .close:focus {
+                    color: #000;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            
+               .active, .collapsible:hover {
+                background-color: #1976D2; 
+      
+               }
+               #Subjective
+               {
+                    display:none;
+               }
+               #MCQ
+               {
+                   display:none;
+               }
+               </style>
+            
+          </head>
+          
+          <body>
+              <script>  $(document).ready(function(){
+                  $('select').formSelect();
+                });
+                </script>
+                <nav>
+                        <div class="nav-wrapper light blue darken-2">
+                          <a href="index.html" class="brand-logo" style="padding-left:5.25%" >Solan |</a>
+                          <a href="dashboardS.html" class="brand-logo" style="padding-left:13%" > Dashboard</a>
+                          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                          <ul id="slide-out" class="sidenav">
+                            <li><div class="user-view">
+                              <div class="background">
+                                <img src="assets/images/0288D1 sidebar bg.png">
+                              </div>
+                              <a style="cursor: default;" href="#user"><img class="circle" src="assets/images/KFP3-promo-po4.jpg"></a>
+                              <a style="cursor: default;" href="#name"><span class="white-text bold name">Name: Po Ping</span></a>
+                              <a style="cursor: default;" href="#email"><span class="white-text bold email">Email: poisamazing@gmail.com</span></a>
+                              
+                              
+                            </div></li>
+                            <li><a style="cursor: default;" href="#!">Class: 10</a></li>
+                            <li><a style="cursor: default;" href="#!">Section: C</a></li>
+                            <li><div class="divider"></div></li>
+                            <li><a class="waves-effect waves-light light blue darken-2 btn modal-trigger" href="#modal1">Change Password</a></li>
+                            <!--<li><a href="#!">Second Link</a></li>-->
+                            <li><div class="divider"></div></li>
+                            
+                            
+                          </ul>
+                          
+                          <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+                         
+
+                          
+                          <ul class="right hide-on-med-and-down">
+                            <li><a href="#leaderboard">Leaderboard</a></li>
+                            <li><a style="cursor: default;" href="#!">Points<span class="new badge" data-badge-caption="">102</span></a></li>
+                            <li><a href="index.html">Logout</a></li>
+                            
+                          </ul>
+                          <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4 class="black-text">Change Password</h4>
+      <p class="black-text">//Insert Django page to change password here</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+                        </div>
+                      </nav>
+
+                     
+
+                      
+                              
+                      
+                        <div class="firstHeight">
+                      <div class="row">
+                        <div class="col s12 m6">
+                          <div class="card grey lighten-4 z-depth-1 hoverable">
+                            <div class="card-content black-text">
+                              
+                              
+                              <br>
+                              <center><a href="#modal3" data-toggle="modal" data-target="#modal3" style="color:black"><i class="material-icons large">question_answer</i></a></center>
+                              <br>
+                              <center><a href="#modal3" data-toggle="modal" data-target="#modal3" style="color:black"><span class="card-title">View Question Bank</span></a></center>
+
+                                <div class = activator style="padding-left: 97%; cursor: pointer;"><i class="material-icons right">info</i></div>
+                              <br>
+                              
+                                  </div>
+                                  <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">View Question Bank<i class="material-icons right icon-black">close</i></span>
+                                    <ul class="browser-default">
+                                     <li>Hone your skills by practising a huge variety of questions submitted by students and teachers for any chapter.</li>
+                                    </ul>
+                                  </div>
+                              <div style = "position : fixed; z-index : 100; top : 200px" id="modal3" class="modal fade" role="dialog">
+                              <br>
+                              <br>
+
+                            <div class="modal-body">
+                              <div class="container">
+                                <h4>Enter Subject and Chapter</h4>
+                                  <form action = "{% url 'viewBank' %}" method="post" class = "input-field">
+                                      {% csrf_token %}
+                                      <div class = "row">
+                                            <select name='myselect1' >
+                                               <option value = "" disabled selected>Select Subject</option>
+                                               <option style="text-emphasis-color: #1976D2" value = "Physics">Physics</option>
+                                               <option value = "Chemistry">Chemistry</option>
+                                               <option value = "Biology">Biology</option>
+                                            </select>
+                                      </div>
+
+                                          <div class = "row">
+                                                <select name = 'myselect2'>
+                                                   <option value = "" disabled selected>Select chapter</option>
+                                                   <option value = "Kinetic Theory">Kinetic Theory</option>
+                                                   <option value = "Thermodynamics">Thermodynamics</option>
+                                                   <option value = "Kinetics">Kinetics</option>
+                                                </select>
+                                          </div>
+										  <div class="modal-footer" style="background-color: white">
+                                      <button type ='submit' class="btn waves-effect waves-light blue darken-2" >View question bank</button>
+                                    </div>
+                                      </form>
+                                    </div>
+                            </div>
+
+
+                          </div>
+                          </div>
+
+
+                        </div>
+                        <div class="col s12 m6">
+                                <div class="card grey lighten-4 z-depth-1 hoverable">
+                                  <div class="card-content black-text">
+                                    
+                                    <br>
+                                    <center><a href="QuestionOfTheWeekS.html" style="color:black"><i class="material-icons large">question_answer</i></a></center>
+                                    <br>
+                                    <center><a href="QuestionOfTheWeekS.html" style="color:black"><span class="card-title">Question of the Week</span></a></center>
+                                    <div class = activator style="padding-left: 97%; cursor: pointer;"><i class="material-icons right">info</i></div>
+                              <br>
+                              
+                                  </div>
+                                  <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">Question of the Week<i class="material-icons right icon-black">close</i></span>
+                                    <ul class="browser-default">
+                                      <li>Try and crack the most challenging question of the week.</li>
+                                      <li>Answer the question of the week right, and you will earn a lot of points.</li>
+                                      
+                                    </ul>
+                                  </div>
+                                </div>
+                                
+                                </div>
+                              </div>
+                        
+                      </div>
+                      </div>
+                     
+  </div>
+                      
+                      <div class="row" style="padding-left:10px; padding-right: 10px;">
+                            
+                              
+                        
+                           <div class="card grey lighten-4 z-depth-1 hoverable card">
+                                <div class="card-content black-text">
+                                  
+                                  
+                              
+                                  <br>
+                                    <center><a href="#modal2" data-toggle="modal" data-target="#modal2" style="cursor: pointer;"><i class="material-icons large modal-trigger" >create</i></a></center>
+                                  <br>
+                                    <center><a href="#modal2" data-toggle="modal" data-target="#modal2" style="cursor: pointer;"><span class="card-title modal-trigger" >Submit New Question</span></a></center>
+                                  <div class = activator style="padding-left: 97%; cursor: pointer;"><i class="material-icons right">info</i></div>
+                              <br>
+                              
+                                  </div>
+                                  <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">Submit New Question<i class="material-icons right icon-red">close</i></span>
+                                    <ul class="browser-default">
+                                      <li>Submit your very own questions chapter-wise to earn points.</li>
+                                      <li>Make the trickiest questions you can and challenge your friends to crack it.</li>
+                                      <li>The best questions stand a chance to be selected as the question of the week. If your question is selected, you will earn more points.</li>
+                                    </ul>
+                                  </div>
+                              </div>
+                              
+                              <div style = "position : fixed; z-index : 100; top : 200px" id="modal2" class="modal fade" role = "dialog">
+                                  <br>
+                                  <br>
+                                    <div class="container">
+                                      <h4>Enter Question details</h4>
+                                        <form action = "{% url 'enterBank' %}" method="post" class = "input-field">
+                                            {% csrf_token %}
+
+                                            <div class = "row">
+                                                  <select name = 'myselect3'>
+                                                     <option value = "" disabled selected>Select Subject</option>
+                                                     <option style="text-emphasis-color: #1976D2" value = "Physics">Physics</option>
+                                                     <option value = "Chemistry">Chemistry</option>
+                                                     <option value = "Biology">Biology</option>
+                                                  </select>               
+                                            </div>
+
+                                                <div class = "row">
+                                                      <select name = 'myselect4'>
+                                                         <option value = "" disabled selected>Select Chapter</option>
+                                                         <option value = "Kinetic Theory">Kinetic Theory</option>
+                                                          <option value = "Thermodynamics">Thermodynamics</option>
+                                                          <option value = "Kinetics">Kinetics</option>
+                                                      </select>               
+                                                </div>
+
+
+
+                                                    <div class = "row">
+                                                          <select name = 'myselect5'>
+                                                             <option value = "" disabled selected>Select Question type</option>
+                                                             <option value = "Subjective"  onclick="dispS()">Subjective</option>
+                                                             <option value = "2" onclick="dispM()">MCQ</option>
+                                                          </select>
+
+                                                        <button type ='submit' class="btn waves-effect waves-light blue darken-2" >Enter question</button>
+                                                    </div>
+                                            <div class="row">
+        <div class="input-field col s12">
+          <textarea name = "questionID" class="materialize-textarea"></textarea>
+          <label for="textarea1">Textarea</label>
+        </div>
+      </div>
+                                                </form>
+                                                <!--div id="Subjective" class="container">
+                                                    <br>
+                                                    <div class="row">
+                                                        <form class="col s12">
+                                                            <div class="row">
+                                                                <div class="input-field col s12">
+                                                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                                                <label for="textarea1">Enter question</label>
+                                                                </div>
+                                                            </div>   
+                                                    </div>
+                                                </div>
+                                                <div id="MCQ" class="container">
+                                                        <br>
+                                                        <div class="row">
+                                                            <form class="col s12">
+                                                                <div class="row">
+                                                                    <div class="input-field col s12">
+                                                                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                                                    <label for="textarea1">Enter question</label>
+                                                                    </div>
+                                                                </div>   
+                                                                <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                        <textarea id="textarea2" class="materialize-textarea"></textarea>
+                                                                        <label for="textarea2">Option A</label>
+                                                                        </div>
+                                                                </div>   
+                                                                <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                        <textarea id="textarea3" class="materialize-textarea"></textarea>
+                                                                        <label for="textarea3">Option B</label>
+                                                                        </div>
+                                                                </div>   
+                                                                <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                        <textarea id="textarea4" class="materialize-textarea"></textarea>
+                                                                        <label for="textarea1">Option C</label>
+                                                                        </div>
+                                                                </div>   
+                                                                <div class="row">
+                                                                        <div class="input-field col s12">
+                                                                        <textarea id="textarea5" class="materialize-textarea"></textarea>
+                                                                        <label for="textarea5">Option D</label>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                    </div-->
+                                        <script>
+                                        function dispS() 
+                                        {
+                                            document.getElementById("#Subjective").style.display="block";
+                                        }
+                                        function dispM
+                                        {
+                                            document.getElementById("MCQ").style.display = "block";
+                                        }
+                                    </script>
+                                    
+                                  <div class="modal-footer">
+                                      <!--button type ='submit' class="btn waves-effect waves-light blue darken-2" >Submit</button-->
+                                  </div>
+                                </div>
+                            </div>
+                          
+                        <!--section id ="leaderboard" style="background-color: white">
+                            <div class="row" style="padding-left:10px; padding-right: 10px;">
+                            
+                              
+                        
+                                <div class="card grey lighten-4 z-depth-1 hoverable card">
+                                     <div class="card-content black-text">
+                                       
+                                       <div id="app"></div>
+                                   </div>
+                                   </div-->
+                                   
+                                   
+                                 </div>
+                               
+                          
+                        </section>
+                        <footer class="page-footer blue darken-2">
+                            <p style="padding-left:22%;">© Copyright 2018 Solan - All Rights Reserved</p>
+                            <br>
+                            
+                         
+                        </footer>
+                      
+                      
+            
+                
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+                <script src="modal.js"></script>
+                <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+                <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+                <script src="leaderboard.js"></script>
+                <script src="assets/web/assets/jquery/jquery.min.js"></script>
+                <script src="assets/popper/popper.min.js"></script>
+                <script src="assets/tether/tether.min.js"></script>
+                <script src="assets/smoothscroll/smooth-scroll.js"></script>
+                <script src="assets/dropdown/js/script.min.js"></script>
+                <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+                <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+                <script src="assets/parallax/jarallax.min.js"></script>
+                <script src="assets/theme/js/script.js"></script>
+                <script src="assets/formoid/formoid.min.js"></script>
+                <script src="assets/sidebar/sidebar.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+                <script src="modal.js"></script>
+                <script src="navbar.js"></script>
+                
+                
+                
+                
+                <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="material-icons">arrow_downward</i></a></div>
+                <input name="animation" type="hidden"> <!--btn to scroll to top-->
+        
+            </body>
+    
+
+</html>

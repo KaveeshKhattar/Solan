@@ -1,0 +1,18 @@
+
+{% extends 'base.html' %}
+
+{% load login_id %}
+
+{% block content %}
+{% if user.is_authenticated %}
+	{% if request.user|has_group:"Student" %}
+		<meta http-equiv="refresh" content="0; URL='dashboardS.html'" />
+  	{% elif request.user|has_group:"Teachers" %}
+  		<meta http-equiv="refresh" content="0; URL='dashboardT.html'" />
+  	{% elif request.user|has_group:"Admin" %}
+  		<meta http-equiv="refresh" content="0; URL='admin'" />	
+  	{% endif %}
+{% else %}
+	<meta http-equiv="refresh" content="0; URL='index.html'" />  
+{% endif %}
+{% endblock %}

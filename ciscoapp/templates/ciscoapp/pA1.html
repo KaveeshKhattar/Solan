@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>      
+	<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Metadata-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Student enters question details ">
+    <title>Dashboard</title>
+    <meta name="generator" content="Program">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" href="assets/images/open-book.png" type="image/x-icon">
+    <!--CSS-->
+    <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+    <link rel="stylesheet" href="assets/tether/tether.min.css">
+    <link rel="stylesheet" href="assets/dropdown/css/style.css">
+    <link rel="stylesheet" href="assets/animatecss/animate.min.css">
+    <link rel="stylesheet" href="assets/socicon/css/styles.css">
+    <link rel="stylesheet" href="assets/theme/css/style.css">
+    <link rel="stylesheet" href="assets/sidebar/sidebar.css">
+    <link rel="stylesheet" href="cards.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+            <!--<link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">-->
+            <script type = "text/javascript" src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>   
+         
+    <style>
+          /* Modal Content */
+          .modal-content {
+              background-color: rgb(255, 255, 255);
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+              width: 80%;
+          }
+          .close:hover,
+          .close:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
+          }
+      
+         .active, .collapsible:hover {
+          background-color: #1976D2; 
+
+         }
+         #Subjective
+         {
+             display:none;
+         }
+         #MCQ
+         {
+             display:none;
+         }
+         </style>
+         </head>
+         
+         
+         <body>
+             <script>  $(document).ready(function(){
+                $('select').formSelect();
+              });
+              </script>
+        <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal w3-card-4" style="background-color: white">
+    <br>
+    <br>
+    <div class="container">
+      <h4>Enter Subject and Chapter</h4>
+        <form class = "input-field">
+            <div class = "row">
+                  <select>
+                     <option value = "" disabled selected>Select Subject</option>
+                     <option style="text-emphasis-color: #1976D2" value = "1">Physics</option>
+                     <option value = "2">Chemistry</option>
+                     <option value = "3">Biology</option>
+                  </select>               
+            </div>
+        </form>
+        <form class = "input-field">
+                <div class = "row">
+                      <select>
+                         <option value = "" disabled selected>Select Fruit</option>
+                         <option value = "1">Optics</option>
+                         <option value = "2">Thermodynamics</option>
+                         <option value = "3">Simple harmonic motion</option>
+                      </select>               
+                </div>
+            </form>
+            <form class = "input-field">
+                    <div class = "row">
+                          <select>
+                             <option value = "" disabled selected>Select Question type</option>
+                             <option value = "1" onclick="dispS()">Subjective</option>
+                             <option value = "2" onclick="dispM()">MCQ</option>
+                          </select>               
+                    </div>
+                </form>
+                <div id="Subjective" class="container">
+                    <br>
+                    <div class="row">
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                </div>
+                            </div>   
+                    </div>
+                </div>
+                <div id="MCQ" class="container">
+                        <br>
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                                    <label for="textarea1">Enter question</label>
+                                    </div>
+                                </div>   
+                                <div class="row">
+                                        <div class="input-field col s12">
+                                        <textarea id="textarea2" class="materialize-textarea"></textarea>
+                                        <label for="textarea2">Option A</label>
+                                        </div>
+                                </div>   
+                                <div class="row">
+                                        <div class="input-field col s12">
+                                        <textarea id="textarea3" class="materialize-textarea"></textarea>
+                                        <label for="textarea3">Option B</label>
+                                        </div>
+                                </div>   
+                                <div class="row">
+                                        <div class="input-field col s12">
+                                        <textarea id="textarea4" class="materialize-textarea"></textarea>
+                                        <label for="textarea1">Oction C</label>
+                                        </div>
+                                </div>   
+                                <div class="row">
+                                        <div class="input-field col s12">
+                                        <textarea id="textarea5" class="materialize-textarea"></textarea>
+                                        <label for="textarea5">Option C</label>
+                                        </div>
+                                </div>   
+                        </div>
+                    </div><script>
+        function dispS() 
+        {
+            document.getElementById("Subjective").style.display = "block";
+        }
+        function dispM() 
+        {
+            document.getElementById("MCQ").style.display = "block";
+        }
+    </script>
+    <div class="modal-footer" style="background-color: white">
+      <button class="btn waves-effect waves-light blue darken-2">Submit</button>
+    </div>
+  </div>
+  
+  </div>
+
+          
+     <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/script.min.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+  <script src="assets/parallax/jarallax.min.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  <script src="assets/formoid/formoid.min.js"></script>
+  <script src="assets/sidebar/sidebar.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <script src="modal.js"></script>
+  <script src="navbar.js"></script>
+  
+  
+ <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i></i></a></div>
+ <input name="animation" type="hidden"> <!--btn to scroll to top-->
+  
+
+</body>
+
+
+  
+</html>

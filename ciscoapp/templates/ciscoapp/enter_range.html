@@ -1,0 +1,7 @@
+
+<form action = "{% url 'searchStudentsByRange' %}" method="post" >
+    {% csrf_token %}
+    <input  name='startRoll' type=text> Enter starting roll number </input>
+	<input  name='endRoll' type=text> Enter ending roll number </input>
+    <button type=submit value="searchStudentsByRange" />
+</form>

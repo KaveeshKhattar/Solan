@@ -1,0 +1,10 @@
+{% if st_lst %}
+    <table>
+        {% for question in st_lst %}
+            <td>{{ question.question }}</td>
+
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No questions are available.</p>
+{% endif %}

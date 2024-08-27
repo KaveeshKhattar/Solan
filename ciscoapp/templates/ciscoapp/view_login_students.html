@@ -1,0 +1,10 @@
+{% if login_lst %}
+    <table>
+        {% for student in login_lst %}
+            <td>{{ student.email_id }}</td>
+			<td>{{ student.password }}</td>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No students are available.</p>
+{% endif %}
